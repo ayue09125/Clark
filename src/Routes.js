@@ -19,6 +19,9 @@ import Home from './Pages/Home/Home.js';
 import CardReader from './Pages/CardReader/CardReader.js';
 import AuditLogsPage from './Pages/AuditLog/AuditLog.js';
 
+import DessertsPage from './Pages/Desserts/Desserts.js';
+import AdminDessertsPage from './Pages/Desserts/AdminDesserts.js';
+
 // Declare an enum for permission check
 export const allowedIf = {
   UNAUTHENTICATED: 'UNAUTHENTICATED',
@@ -194,5 +197,9 @@ export const signedOutRoutes = [
     path: '/emailPreferences',
     pageName: 'Email Preferences',
     hideFromShortcutSuggestions: true
+  },
+  {
+    Component: DessertsPage,
+    path: '/desserts',
   },
 ];

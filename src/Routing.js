@@ -6,11 +6,21 @@ import NavBarWrapper from './Components/Navbar/NavBarWrapper';
 
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
-import { officerOrAdminRoutes, notAuthenticatedRoutes, signedOutRoutes } from './Routes.js';
+import { officerOrAdminRoutes, notAuthenticatedRoutes, signedOutRoutes, allowedIf } from './Routes.js';
+
+import DessertsPage from './Pages/Desserts/AdminDesserts.js';
 
 export default function Routing({ appProps }) {
 
-  const signedInRoutes = [...officerOrAdminRoutes, ...notAuthenticatedRoutes];
+  const signedInRoutes = [...officerOrAdminRoutes, ...notAuthenticatedRoutes, 
+    {
+      Component: DessertsPage,
+      path: '/desserts-admin',
+      allowedIf: allowedIf.OFFICER_OR_ADMIN,
+      redirect: '/',
+      inAdminNavbar: true
+    }
+  ];
 
   return (
     <div>
